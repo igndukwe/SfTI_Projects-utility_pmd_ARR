@@ -1,7 +1,7 @@
 ##########################################################################################################
 # Instructions                                                                                           #
 # 1. create a main folder e.g pmd1                                                                       #
-# 2. create a subfolder where all the library files will be kept e.g. checks_libs                        #
+# 2. create a subfolder where all the library files will be kept e.g. checks_lib                        #
 #   2a. past your customised rules set file into the checks_libs subfolder e.g. pmdrules.xml             #
 # 3. create a subfolders where all the mvn apps will be saved e.g. mvn_app                               #
 # 4. update all the directories in the sbatch script to reflect your current directory                   #
@@ -16,6 +16,9 @@
 # srun python s1_mk_multiple_maven_apps_n_move_files_ARR.py -idx "${SLURM_ARRAY_TASK_ID}" -n 577 -s ../my_codesnippet_analysis/pmdpasscodesnippets_java -pd ../my_codesnippet_analysis/pmd1/mvn_apps -upd -libs ../my_codesnippet_analysis/pmd1/checks_lib -rvaf
 
 # srun python s1_mk_multiple_maven_apps_n_move_files_ARR.py -idx "${SLURM_ARRAY_TASK_ID}" -n 577 -s ../my_codesnippet_analysis/codesnippets_java -crd ../my_codesnippet_analysis/pmd1 -ucrd -pd mvn_apps -upd -libs checks_lib -rvaf
+
+# Change the data source -s
+# ../../../../stackexchange_v2/workspace/input/codesnippets_csv
 
 # To run it on slum:
 # $    sbatch s1_mk_multiple_maven_apps_n_move_files_ARR.sl 
@@ -399,7 +402,7 @@ def update_pom_xml(
 
     # <build><pluginManagement><plugins><plugin><executions><execution><configuration><failsOnError>
     failsOnError = configuration.makeelement('failsOnError', attrib)
-    failsOnError.text = 'false'
+    failsOnError.text = 'true'
     configuration.append(failsOnError)
 
     # <build><pluginManagement><plugins><plugin><executions><execution><configuration><failOnViolation>
@@ -462,7 +465,7 @@ def update_pom_xml(
 
     #<reporting><plugins><plugin><configuration><failsOnError>
     failsOnError = configuration.makeelement('failsOnError', attrib)
-    failsOnError.text = 'false'
+    failsOnError.text = 'true'
     configuration.append(failsOnError)
 
     #<reporting><plugins><plugin><configuration><failOnViolation>
