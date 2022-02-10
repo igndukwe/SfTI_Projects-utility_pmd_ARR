@@ -1,9 +1,9 @@
 ##########################################################################################################
 # Instructions                                                                                           #
 # 1. create a main folder e.g pmd1                                                                       #
-# 2. create a subfolder where all the library files will be kept e.g. checks_lib                        #
+# 2. create a subfolder where all the library files will be kept e.g. checks_lib                         #
 #   2a. past your customised rules set file into the checks_libs subfolder e.g. pmdrules.xml             #
-# 3. create a subfolders where all the mvn apps will be saved e.g. mvn_apps                               #
+# 3. create a subfolders where all the mvn apps will be saved e.g. mvn_apps                              #
 # 4. update all the directories in the sbatch script to reflect your current directory                   #
 # 5. run the sbatch script e.g. sbatch s1_mk_multiple_maven_apps_n_move_files_ARR.sl                     #
 # 6. run the sbatch script e.g. sbatch pmdrules.xml                                                      #
